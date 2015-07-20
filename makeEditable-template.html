@@ -1,3 +1,10 @@
-<div ng-transclude>
-    abcd
+<div ng-controller="directiveController as ctrl" class="container" >
+    <div class="row ">
+        <input ng-if="ctrl.isEditable==false" ng-click="ctrl.makeEditable()" class="pull-right" type="button" value="Edit">
+        <input ng-if="ctrl.isEditable==true" ng-click="ctrl.makeEditable()" class="pull-right" type="button" value="Save">
+    </div>
+    <div class="row" contenteditable="{{ctrl.isEditable}}" ng-class = "{ editable: ctrl.isEditable }" ng-transclude>
+
+    </div>
+
 </div>
